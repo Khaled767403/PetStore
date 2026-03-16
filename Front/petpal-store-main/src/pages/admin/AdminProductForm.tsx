@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { uploadImage } from "@/services/admin/uploads";
 import { getAnimalTypes, getAnimalCategories, getProductTypeCategories } from "@/services/admin/catalog";
+import { resolveMediaUrl } from "@/lib/media";
 
 type AdminAnimalTypeDto = {
   id: number;
@@ -292,7 +293,7 @@ export default function AdminProductForm({
           {product.imageUrls.map((url) => (
             <div key={url} className="relative">
               <img
-                src={url}
+                src={resolveMediaUrl(url)}
                 alt="Product"
                 className="h-24 w-24 rounded-lg object-cover border border-border"
               />

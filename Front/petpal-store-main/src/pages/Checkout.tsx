@@ -52,18 +52,22 @@ export default function Checkout() {
   };
 
   const handleOpenWhatsApp = () => {
-    const link =
-      (orderResult as any)?.whatsappUrl ||
-      (orderResult as any)?.whatsAppUrl;
+  let link =
+    (orderResult as any)?.whatsappUrl ||
+    (orderResult as any)?.whatsAppUrl;
 
-    if (!link) {
-      console.log("Order result object:", orderResult);
-      alert("WhatsApp link is missing.");
-      return;
-    }
+  if (!link) {
+    console.log("Order result object:", orderResult);
+    alert("WhatsApp link is missing.");
+    return;
+  }
 
-    window.open(link, "_blank", "noopener,noreferrer");
-  };
+  // 👇 الجزء السحري هنا:
+  // بنقول للكود: لو لقيت نص مكتوب فيه \n (حرفين) حولهم لسطر حقيقي يفهمه الواتساب
+  link = link.replace(/\\n/g, '%0A');
+
+  window.open(link, "_blank", "noopener,noreferrer");
+};
 
   if (orderResult) {
     return (

@@ -7,11 +7,26 @@ import fishImg from '@/assets/pets/fish.jpg';
 import otherImg from '@/assets/pets/other.jpg';
 
 export const mockAnimals: AnimalType[] = [
-  { id: 1, name: 'Dog', imageUrl: dogImg, categories: [{ id: 1, name: 'Food', animalTypeId: 1 }, { id: 2, name: 'Toys', animalTypeId: 1 }, { id: 3, name: 'Grooming', animalTypeId: 1 }] },
-  { id: 2, name: 'Cat', imageUrl: catImg, categories: [{ id: 4, name: 'Food', animalTypeId: 2 }, { id: 5, name: 'Toys', animalTypeId: 2 }, { id: 6, name: 'Litter', animalTypeId: 2 }] },
-  { id: 3, name: 'Bird', imageUrl: birdImg, categories: [{ id: 7, name: 'Food', animalTypeId: 3 }, { id: 8, name: 'Cages', animalTypeId: 3 }] },
-  { id: 4, name: 'Fish', imageUrl: fishImg, categories: [{ id: 9, name: 'Food', animalTypeId: 4 }, { id: 10, name: 'Aquariums', animalTypeId: 4 }] },
-  { id: 5, name: 'Other', imageUrl: otherImg, categories: [{ id: 11, name: 'Food', animalTypeId: 5 }, { id: 12, name: 'Supplies', animalTypeId: 5 }] },
+  {
+    id: 1, name: 'Dog', imageUrl: dogImg, categories: [{ id: 1, name: 'Food', animalTypeId: 1 }, { id: 2, name: 'Toys', animalTypeId: 1 }, { id: 3, name: 'Grooming', animalTypeId: 1 }],
+    slug: ''
+  },
+  {
+    id: 2, name: 'Cat', imageUrl: catImg, categories: [{ id: 4, name: 'Food', animalTypeId: 2 }, { id: 5, name: 'Toys', animalTypeId: 2 }, { id: 6, name: 'Litter', animalTypeId: 2 }],
+    slug: ''
+  },
+  {
+    id: 3, name: 'Bird', imageUrl: birdImg, categories: [{ id: 7, name: 'Food', animalTypeId: 3 }, { id: 8, name: 'Cages', animalTypeId: 3 }],
+    slug: ''
+  },
+  {
+    id: 4, name: 'Fish', imageUrl: fishImg, categories: [{ id: 9, name: 'Food', animalTypeId: 4 }, { id: 10, name: 'Aquariums', animalTypeId: 4 }],
+    slug: ''
+  },
+  {
+    id: 5, name: 'Other', imageUrl: otherImg, categories: [{ id: 11, name: 'Food', animalTypeId: 5 }, { id: 12, name: 'Supplies', animalTypeId: 5 }],
+    slug: ''
+  },
 ];
 
 export const mockProductTypes: ProductTypeCategory[] = [

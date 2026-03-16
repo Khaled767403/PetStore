@@ -3,10 +3,10 @@ import { useQuery } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
 import { getAdminProducts, deleteProduct } from "@/services/admin/products";
 import { Plus, Search, Edit, Trash2 } from "lucide-react";
+import { resolveMediaUrl } from "@/lib/media";
 
 export default function AdminProducts() {
   const navigate = useNavigate();
-
   const [search, setSearch] = useState("");
 
   const { data, refetch, isLoading, isError } = useQuery({
@@ -50,7 +50,6 @@ export default function AdminProducts() {
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6">
         <div className="relative w-full sm:w-72">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-
           <input
             placeholder="Search products..."
             value={search}
@@ -75,15 +74,12 @@ export default function AdminProducts() {
               <th className="px-4 py-3 text-left font-medium text-muted-foreground">
                 Product
               </th>
-
               <th className="px-4 py-3 text-left font-medium text-muted-foreground">
                 Price
               </th>
-
               <th className="px-4 py-3 text-left font-medium text-muted-foreground">
                 Stock
               </th>
-
               <th className="px-4 py-3 text-right font-medium text-muted-foreground">
                 Actions
               </th>
@@ -99,24 +95,18 @@ export default function AdminProducts() {
                 <td className="px-4 py-3">
                   <div className="flex items-center gap-3">
                     <img
-                      src={product.mainImageUrl || ""}
+                      src={resolveMediaUrl(product.mainImageUrl)}
                       alt={product.title}
                       className="h-10 w-10 rounded-md object-cover bg-muted"
                     />
-
                     <span className="font-medium line-clamp-1">
                       {product.title}
                     </span>
                   </div>
                 </td>
 
-                <td className="px-4 py-3">
-                  {product.finalPrice} EGP
-                </td>
-
-                <td className="px-4 py-3">
-                  {product.quantityOnHand}
-                </td>
+                <td className="px-4 py-3">{product.finalPrice} EGP</td>
+                <td className="px-4 py-3">{product.quantityOnHand}</td>
 
                 <td className="px-4 py-3 text-right">
                   <div className="flex items-center justify-end gap-2">
@@ -140,10 +130,7 @@ export default function AdminProducts() {
 
             {products.length === 0 && (
               <tr>
-                <td
-                  colSpan={4}
-                  className="px-4 py-10 text-center text-muted-foreground"
-                >
+                <td colSpan={4} className="px-4 py-10 text-center text-muted-foreground">
                   No products found
                 </td>
               </tr>

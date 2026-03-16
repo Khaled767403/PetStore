@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Search, User, Heart, ShoppingCart, Menu, X } from "lucide-react";
+import { Search, User, ShoppingCart, Menu, X } from "lucide-react";
 import { useCartStore } from "@/stores/cart-store";
 import { api } from "@/lib/api";
 import logo from "@/assets/logo.png";
@@ -87,10 +87,17 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 bg-card shadow-sm">
       <div className="container mx-auto flex items-center justify-between gap-4 px-4 py-3">
-        <Link to="/" className="flex-shrink-0">
-          <img src={logo} alt="PetStore" className="h-10 w-10 object-contain" />
+        
+        {/* Logo */}
+        <Link to="/" className="flex items-center">
+          <img
+            src={logo}
+            alt="PetStore"
+            className="h-14 w-auto object-contain"
+          />
         </Link>
 
+        {/* Search */}
         <form onSubmit={handleSearch} className="hidden max-w-xl flex-1 md:flex">
           <div className="relative w-full">
             <input
@@ -109,7 +116,9 @@ export function Header() {
           </div>
         </form>
 
+        {/* Right Icons */}
         <div className="flex items-center gap-3">
+
           <Link
             to="/admin/login"
             className="hidden items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-foreground md:flex"
@@ -117,15 +126,13 @@ export function Header() {
             <User className="h-5 w-5" />
           </Link>
 
-          <button className="hidden items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-foreground md:flex">
-            <Heart className="h-5 w-5" />
-          </button>
-
+          {/* Cart */}
           <Link
             to="/cart"
             className="relative flex items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-foreground"
           >
             <ShoppingCart className="h-5 w-5" />
+
             {totalItems > 0 && (
               <span className="absolute -right-2 -top-2 flex h-5 w-5 items-center justify-center rounded-full bg-accent text-[10px] font-bold text-accent-foreground">
                 {totalItems}
@@ -133,6 +140,7 @@ export function Header() {
             )}
           </Link>
 
+          {/* Mobile Menu */}
           <button
             className="md:hidden"
             onClick={() => setMobileMenuOpen((prev) => !prev)}
@@ -146,6 +154,7 @@ export function Header() {
         </div>
       </div>
 
+      {/* Mobile Search */}
       <form onSubmit={handleSearch} className="px-4 pb-3 md:hidden">
         <div className="relative w-full">
           <input
@@ -164,6 +173,7 @@ export function Header() {
         </div>
       </form>
 
+      {/* Desktop Nav */}
       <nav className="hidden border-t border-border bg-primary md:block">
         <div className="container mx-auto flex items-center gap-1 px-4">
           {navItems.map((item) => (
@@ -178,6 +188,7 @@ export function Header() {
         </div>
       </nav>
 
+      {/* Mobile Nav */}
       {mobileMenuOpen && (
         <nav className="animate-slide-in border-t border-border bg-card md:hidden">
           {navItems.map((item) => (
