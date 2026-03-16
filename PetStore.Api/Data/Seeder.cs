@@ -26,7 +26,7 @@ public class Seeder
                 StoreName = "PetStore",
                 WhatsAppNumber = "201204723471",
                 WhatsAppTemplate =
-                    "طلب جديد: {ORDER_NO}\nالاسم: {NAME}\nالموبايل: {PHONE}\nالعنوان: {ADDRESS}\nطريقة الدفع: {PAYMENT}\nالمنتجات:\n{ITEMS}\nالإجمالي: {TOTAL}",
+                    "طلب جديد رقم: {ORDER_NO}\nالاسم: {NAME}\nالموبايل: {PHONE}\nالعنوان: {ADDRESS}\nطريقة الدفع: {PAYMENT}\nالمنتجات:\n{ITEMS}\nالإجمالي: {TOTAL}\n---------------------------\nشكراً لتسوقكم معنا!",
                 InstaPayHandle = "instapay-handle",
                 WalletNumber = "201228202202",
                 Currency = "EGP",
